@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_05_013152) do
+ActiveRecord::Schema.define(version: 2023_11_04_103501) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -63,11 +63,6 @@ ActiveRecord::Schema.define(version: 2023_11_05_013152) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "followeds", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id", null: false
     t.integer "followed_id", null: false
@@ -93,6 +88,6 @@ ActiveRecord::Schema.define(version: 2023_11_05_013152) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "relationships", "followeds"
-  add_foreign_key "relationships", "followers"
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
 end
