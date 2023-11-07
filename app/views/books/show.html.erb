@@ -11,7 +11,7 @@
       <table class='table'>
           <tr>
             <td><%= link_to(@book.user) do %>
-            <%= image_tag @user.get_profile_image(100,100) %><br>
+            <%= image_tag @book.user.get_profile_image(100,100) %><br>
             <%= @book.user.name %>
             <% end %>
             </td>
@@ -23,6 +23,21 @@
             <td id="comment_counter">
               <%= render "book_comments/counter", book: @book %>
             </td>
+            
+            <td>
+              <div id="star-rate<%= @book.id%>"></div>
+               <script>
+                $('#star-rate<%= @book.id %>').empty();
+                $('#star-rate<%= @book.id %>').raty({
+                size :36,
+                starOff : '<% asset_path('star-off.png') %>',
+                starOn : '<% asset_path('star-on.png') %>',
+                half : false,
+                readOnly: true,
+                score: <%= @book.star %>,
+                })
+               </script>
+              </td>
             <td>コメント数: <%= @book.book_comments.count %></td>
             <% if @book.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
