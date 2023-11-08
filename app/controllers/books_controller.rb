@@ -6,6 +6,15 @@ class BooksController < ApplicationController
   from = (to - 6.day).at_beginning_of_day
   @books = Book.includes(:favorites).sort_by { |book| -book.favorites.where(created_at: from...to).count }
   @book = Book.new
+   if params[:lastest]
+     @books = Book.latest
+   elsif params[:old]
+     @books = Book.old
+   elsif params[:star_count]
+     @books = Book.star_count
+   else
+     @books = Book.old   
+   end
   end
 
 def create
