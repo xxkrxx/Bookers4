@@ -23,21 +23,7 @@
             <td id="comment_counter">
               <%= render "book_comments/counter", book: @book %>
             </td>
-            
-            <td>
-              <div id="star-rate<%= @book.id%>"></div>
-               <script>
-                $('#star-rate<%= @book.id %>').empty();
-                $('#star-rate<%= @book.id %>').raty({
-                size :36,
-                starOff : '<% asset_path('star-off.png') %>',
-                starOn : '<% asset_path('star-on.png') %>',
-                half : false,
-                readOnly: true,
-                score: <%= @book.star %>,
-                })
-               </script>
-              </td>
+            <%= render 'static_rate', book: @book %>
             <td>コメント数: <%= @book.book_comments.count %></td>
             <% if @book.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
