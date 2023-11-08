@@ -23,6 +23,11 @@
               <%= render "book_comments/counter", book: @book %>
             <td>コメント数: <%= @book.book_comments.count %></td>
             <td><%= render 'books/static_rate', book: @book %></td>
+            <td>
+  　       　<% if @book.category.present? %>
+　　　　    <%=link_to@book.category,tagsearches_search_path(content:@book.category)%>
+　        　<% end %>
+            </td>
             <% if @book.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}" %></td>

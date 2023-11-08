@@ -58,7 +58,7 @@ end
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :star)
+    params.require(:book).permit(:title, :body, :star,:category)
   end
 
   def ensure_correct_user
