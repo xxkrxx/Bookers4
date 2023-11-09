@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
  resources :books
  resources :users
+ get 'tagsearches/search'
  get '/search', to: 'searches#search'
  get 'messages/:id' => 'messages#message', as: 'message'
  post 'messages' => 'messages#create', as: 'messages'
@@ -20,5 +21,4 @@ end
   	get "followings" => "relationships#followings", as: "followings"
   	get "followers" => "relationships#followers", as: "followers"
  end
-
 end

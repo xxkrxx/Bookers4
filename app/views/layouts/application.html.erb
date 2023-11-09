@@ -13,14 +13,14 @@
   </head>
   <body>
   <%= render 'layouts/header' %>
-  <% if user_signed_in? %>
-   <%= render 'tagsearches/tagsearch' %>
-   <% end %>
     <main>
      <p id="notice"><%= notice %></p>
      <div class="d-flex justify-content-center mb-2">
       <%= render "searches/form" %>
      </div>
+     <% if user_signed_in? %>
+      <%= render 'tagsearches/tagsearch' %>
+     <% end %>
       <%= yield %>
     </main>
   <%= render 'layouts/footer' %>
