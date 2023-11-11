@@ -15,7 +15,7 @@ class User < ApplicationRecord
    has_many :followings, through: :relationships, source: :followed
    has_many :send_user, dependent: :destroy
    has_many :receive_user, dependent: :destroy
-   
+   has_many :view_counts, dependent: :destroy 
 
 
 
@@ -47,6 +47,7 @@ class User < ApplicationRecord
  def following?(user)
    followings.include?(user)
  end
+
 
 
  def self.search_for(content, method)

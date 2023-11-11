@@ -7,6 +7,7 @@ has_many :week_favorites, -> {where(created_at: 1.week.ago.beginning_of_day..Tim
 scope :latest, -> {order(created_at: :desc)}
 scope :old, -> {order(created_at: :asc)}
 scope :star_count, -> {order(star: :desc)}
+has_many :view_counts, dependent: :destroy
 
   validates :title, presence: true
   validates :body, presence: true, length: { maximum: 200 }

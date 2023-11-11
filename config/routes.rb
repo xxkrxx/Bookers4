@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
  resources :books
  resources :users
- get 'tagsearches/search'
+ get 'tagsearches/search' => "tagsearches#search"
  get '/search', to: 'searches#search'
  get 'messages/:id' => 'messages#message', as: 'message'
  post 'messages' => 'messages#create', as: 'messages'

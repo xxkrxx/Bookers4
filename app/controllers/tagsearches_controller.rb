@@ -3,6 +3,6 @@ class TagsearchesController < ApplicationController
     @madel = Book
     @word = params
     @books = Book.where("category LIKE?","%#{@word}%")
-    render "tagesearches/tagsearch"
+    render "tagsearches/tagsearch"
   end
 end

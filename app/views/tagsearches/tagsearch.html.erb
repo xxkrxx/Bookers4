@@ -1,3 +1,6 @@
-<h2><%= @model %>s search for "<%= @word %>"</h2>
+<div class="container">
 
-<%= render 'books/index', books: @books %>
+  <h2>Books search for "<%= @word %>"</h2>
+  <%= render "books/index", books: @books %>
+
+</div>
