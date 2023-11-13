@@ -15,12 +15,10 @@
   <%= render 'layouts/header' %>
     <main>
      <p id="notice"><%= notice %></p>
-     <div class="d-flex justify-content-center mb-2">
-      <%= render "searches/form" %>
-     </div>
     <div class="d-flex justify-content-center mb-2">
      <% if user_signed_in? %>
-      <%= render 'tagsearches/tagsearch' %>
+     <span class="mr-3"><%= render 'tagsearches/tagsearch'%></span>
+      <%= render "searches/form" %>
      <% end %>
     </div>
       <%= yield %>
