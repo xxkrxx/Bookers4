@@ -7,16 +7,17 @@
     <div class='col-md-3'>
       <h2>User info</h2>
       <%= render 'users/info', user: current_user %>
-    <h2 class="col-mt-3">New book</h2>
-      <%= render 'form',book: @book %>
+      <h2 class="col-mt-3">New book</h2>
+      <%= render 'form', book: @book %>
     </div>
-     <div class='col-md-8 offset-md-1'>
-    <h2>Books</h2>
-    <%= link_to '新しい順', books_path(lastest: "true") %>
-   |<%= link_to '古い順', books_path(old: "true") %>
-   |<%= link_to '評価の高い順', books_path(star_count: "true") %>
-    <%= render 'index', books: @books %>
-   </div>
- </div>
+    <div class='col-md-8 offset-md-1'>
+      <h2>Books</h2>
+      <%= link_to '新しい順', books_path(lastest: "true") %> |
+      <%= link_to '古い順', books_path(old: "true") %> |
+      <%= link_to '評価の高い順', books_path(star_count: "true") %>
+      <%= render 'index', books: @books %>
+    </div>
+  </div>
 </div>
+
 
