@@ -1,2 +1,2 @@
-$("#messages").html("<%= j(render 'messages/messages',messages: @messages) %>");
+$("#messages").append("<%= j(render 'messages/message',message: @message) %>");
 $("#message_field").val('');
